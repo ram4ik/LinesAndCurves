@@ -10,7 +10,22 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello World")
+        ZStack {
+            Rectangle()
+                // Modifier Order: Trim -> Stroke -> Frame
+                .trim(from: 1/2, to: 1)
+                .stroke()
+                .frame(width: 300, height: 300)
+                .foregroundColor(.red)
+            Divider()
+            Circle()
+                // Modifier Order: Trim -> Stroke -> Frame
+                .trim(from: 1/2, to: 1)
+                .stroke()
+                .frame(width: 300, height: 300)
+                .foregroundColor(.blue)
+                .rotationEffect(.degrees(45))
+        }
     }
 }
 
